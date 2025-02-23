@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة القفز بالمسطرة - AI Kids School</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+        .game-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        #ruler {
+            width: 100%;
+            height: 50px;
+            background-color: #e0e0e0;
+            position: relative;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #player {
+            width: 30px;
+            height: 30px;
+            background-color: #4CAF50;
+            position: absolute;
+            bottom: 0;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        #jumpButton {
+            margin-top: 20px;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #jumpButton:hover {
+            background-color: #1976D2;
+            transform: scale(1.05);
+        }
+        #scoreDisplay {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .game-instructions {
+            background-color: #f1f8ff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h2 class="mb-4">لعبة القفز بالمسطرة</h2>
+        
+        <div class="game-instructions">
+            <p>
+                <i class="fas fa-info-circle me-2"></i>
+                اضغط على زر القفز لتحريك اللاعب. حاول القفز أبعد مسافة ممكنة!
+            </p>
+        </div>
+
+        <div id="scoreDisplay">
+            المسافة: <span id="distanceSpan">0</span> سم
+        </div>
+
+        <div id="ruler" dir="ltr">
+            <div id="player"></div>
+        </div>
+
+        <button id="jumpButton" onclick="jump()">
+            <i class="fas fa-running me-2"></i> اقفز
+        </button>
+    </div>
+
+    <script>
+        const ruler = document.getElementById('ruler');
+        const player = document.getElementById('player');
+        const distanceSpan = document.getElementById('distanceSpan');
+        let playerPosition = 0;
+        let distance = 0;
+
+        function jump() {
+            // حساب القوة بشكل عشوائي
+            const jumpPower = Math.random() * 100 + 50; // قوة قفز بين 50-150
+            
+            // تحريك اللاعب
+            playerPosition += jumpPower;
+            player.style.left = `${playerPosition}px`;
+            
+            // تحديث المسافة
+            distance = Math.round(playerPosition / 5); // تحويل البكسل إلى سنتيمتر
+            distanceSpan.textContent = distance;
+
+            // التأكد من عدم الخروج عن حدود المسطرة
+            if (playerPosition > ruler.offsetWidth - player.offsetWidth) {
+                playerPosition = ruler.offsetWidth - player.offsetWidth;
+                player.style.left = `${playerPosition}px`;
+            }
+        }
+    </script>
+</body>
+</html>

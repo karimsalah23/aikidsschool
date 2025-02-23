@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مغامرات المبرمج الصغير</title>
+    <script src="https://unpkg.com/blockly@9.0.0/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly@9.0.0/blocks.js"></script>
+    <script src="https://unpkg.com/blockly@9.0.0/javascript_compressed.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #4CAF50;
+            --background-color: #f0f4f8;
+            --text-color: #333;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(135deg, #1A237E 0%, #3F51B5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            padding: 20px;
+        }
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .game-header h1 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+        }
+        .game-header h1 i {
+            color: #FFD700;
+        }
+        .game-container {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+            min-height: 600px;
+        }
+        #blocklyDiv {
+            flex: 2;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        #gameCanvas {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        #character {
+            font-size: 80px;
+            transition: all 0.5s ease;
+        }
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        #levelInfo {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            background-color: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-header">
+        <h1><i class="fas fa-gamepad"></i> مغامرات المبرمج الصغير</h1>
+        <div id="levelInfo">اختر المهمة للبدء</div>
+    </div>
+
+    <div class="game-container">
+        <div id="blocklyDiv"></div>
+        <div id="gameCanvas">
+            <div id="character">🧑‍💻</div>
+        </div>
+    </div>
+
+    <div class="game-controls">
+        <button id="runCode" class="btn btn-primary" disabled>
+            <i class="fas fa-play"></i> ابدأ المهمة
+        </button>
+        <button id="resetGame" class="btn btn-secondary" disabled>
+            <i class="fas fa-redo"></i> إعادة التهيئة
+        </button>
+    </div>
+
+    <xml id="toolbox" style="display: none">
+        <category name="الحركة 🚀" colour="#2196F3">
+            <block type="move_forward">
+                <field name="STEPS">1</field>
+            </block>
+            <block type="turn_right"></block>
+            <block type="turn_left"></block>
+        </category>
+        <category name="التكرار 🔁" colour="#4CAF50">
+            <block type="controls_repeat_ext">
+                <value name="TIMES">
+                    <shadow type="math_number">
+                        <field name="NUM">3</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="الشروط 🤔" colour="#FF9800">
+            <block type="controls_if"></block>
+        </category>
+    </xml>
+
+    <script>
+        // Custom Blockly Blocks for Character Movement
+        Blockly.Blocks['move_forward'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("🚶 تحرك للأمام")
+                    .appendField(new Blockly.FieldNumber(1, 1, 10), "STEPS")
+                    .appendField("خطوة");
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setColour('#2196F3');
+            }
+        };
+
+        Blockly.Blocks['turn_right'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("↪️ استدر يمينًا 90 درجة");
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setColour('#2196F3');
+            }
+        };
+
+        Blockly.Blocks['turn_left'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("↩️ استدر يسارًا 90 درجة");
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setColour('#2196F3');
+            }
+        };
+
+        // JavaScript Generators for Custom Blocks
+        Blockly.JavaScript['move_forward'] = function(block) {
+            const steps = block.getFieldValue('STEPS');
+            let code = '';
+            for (let i = 0; i < steps; i++) {
+                code += 'moveForward();\n';
+            }
+            return code;
+        };
+
+        Blockly.JavaScript['turn_right'] = function() {
+            return 'turnRight();\n';
+        };
+
+        Blockly.JavaScript['turn_left'] = function() {
+            return 'turnLeft();\n';
+        };
+
+        // Blockly Workspace Configuration
+        const workspace = Blockly.inject('blocklyDiv', {
+            toolbox: document.getElementById('toolbox'),
+            rtl: true,
+            trashcan: true,
+            grid: {
+                spacing: 25,
+                length: 3,
+                colour: 'rgba(255,255,255,0.2)',
+                snap: true
+            },
+            zoom: {
+                controls: true,
+                wheel: true,
+                startScale: 1,
+                maxScale: 3,
+                minScale: 0.3,
+            }
+        });
+
+        // Game Logic Placeholders
+        function moveForward() {
+            console.log('Moving forward');
+            // Implement actual movement logic
+        }
+
+        function turnRight() {
+            console.log('Turning right');
+            // Implement actual turn right logic
+        }
+
+        function turnLeft() {
+            console.log('Turning left');
+            // Implement actual turn left logic
+        }
+
+        // Run Code Button
+        const runCodeButton = document.getElementById('runCode');
+        const resetGameButton = document.getElementById('resetGame');
+        const levelInfo = document.getElementById('levelInfo');
+
+        runCodeButton.addEventListener('click', () => {
+            const code = Blockly.JavaScript.workspaceToCode(workspace);
+            console.log('Generated Code:', code);
+            // Implement code execution logic
+        });
+
+        resetGameButton.addEventListener('click', () => {
+            workspace.clear();
+            // Implement game reset logic
+        });
+    </script>
+</body>
+</html>

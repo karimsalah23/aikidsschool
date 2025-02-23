@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم ولي الأمر - Ai KiDs SCHOOL</title>
+    
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- القائمة العلوية -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Ai KiDs SCHOOL Logo" class="logo">
+                Ai KiDs SCHOOL
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#overview">نظرة عامة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#children">أطفالي</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#courses">الدورات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#progress">التقدم</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <span class="me-3">مرحباً، <span id="parentName">أحمد</span></span>
+                    <a href="login.html" class="btn btn-outline-primary">تسجيل الخروج</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="dashboard-container">
+        <!-- نظرة عامة -->
+        <section id="overview" class="dashboard-section">
+            <div class="container">
+                <h2>نظرة عامة</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>2</h3>
+                                <p>الأطفال المسجلين</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>4</h3>
+                                <p>الدورات النشطة</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>2</h3>
+                                <p>الشهادات المكتملة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- أطفالي -->
+        <section id="children" class="dashboard-section">
+            <div class="container">
+                <h2>أطفالي</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="child-card">
+                            <div class="child-info">
+                                <img src="images/avatar1.png" alt="صورة الطفل" class="child-avatar">
+                                <h3>علي أحمد</h3>
+                                <p>10 سنوات</p>
+                            </div>
+                            <div class="child-progress">
+                                <h4>التقدم في الدورات</h4>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar" role="progressbar" style="width: 75%">برمجة سكراتش - 75%</div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 40%">بايثون للمبتدئين - 40%</div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary mt-3">عرض التفاصيل</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="child-card">
+                            <div class="child-info">
+                                <img src="images/avatar2.png" alt="صورة الطفل" class="child-avatar">
+                                <h3>سارة أحمد</h3>
+                                <p>8 سنوات</p>
+                            </div>
+                            <div class="child-progress">
+                                <h4>التقدم في الدورات</h4>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar" role="progressbar" style="width: 90%">برمجة سكراتش - 90%</div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 20%">الذكاء الاصطناعي للمبتدئين - 20%</div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary mt-3">عرض التفاصيل</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- الدورات -->
+        <section id="courses" class="dashboard-section">
+            <div class="container">
+                <h2>الدورات المتاحة</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="course-card">
+                            <img src="images/scratch.png" alt="Scratch Course" class="course-image">
+                            <div class="course-content">
+                                <h3>برمجة سكراتش للمبتدئين</h3>
+                                <p>دورة تعليمية ممتعة لتعلم أساسيات البرمجة</p>
+                                <div class="course-details">
+                                    <span><i class="fas fa-clock"></i> 12 ساعة</span>
+                                    <span><i class="fas fa-star"></i> 4.8</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">سجل الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="course-card">
+                            <img src="images/python.png" alt="Python Course" class="course-image">
+                            <div class="course-content">
+                                <h3>بايثون للأطفال</h3>
+                                <p>تعلم البرمجة باستخدام لغة بايثون</p>
+                                <div class="course-details">
+                                    <span><i class="fas fa-clock"></i> 15 ساعة</span>
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">سجل الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="course-card">
+                            <img src="images/ai.png" alt="AI Course" class="course-image">
+                            <div class="course-content">
+                                <h3>الذكاء الاصطناعي للمبتدئين</h3>
+                                <p>مقدمة في عالم الذكاء الاصطناعي</p>
+                                <div class="course-details">
+                                    <span><i class="fas fa-clock"></i> 10 ساعة</span>
+                                    <span><i class="fas fa-star"></i> 4.7</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">سجل الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- التقدم -->
+        <section id="progress" class="dashboard-section">
+            <div class="container">
+                <h2>تقدم الأطفال</h2>
+                <div class="progress-chart">
+                    <!-- هنا يمكن إضافة رسم بياني لتتبع تقدم الأطفال -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

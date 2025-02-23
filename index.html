@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>مدرسة الذكاء الاصطناعي للأطفال</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* تصميم عربي حديث للهيدر */
+        .hero-section {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: #333;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-title {
+            font-family: 'Cairo', sans-serif; /* خط عربي جميل */
+            font-size: 4.5rem;
+            font-weight: 900;
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .hero-title .letter {
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-origin: center bottom;
+        }
+        .hero-title .letter:hover {
+            transform: scale(1.2) rotate(5deg);
+            color: #e74c3c;
+        }
+        .hero-subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.6;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            opacity: 0.3;
+            z-index: 1;
+            animation: moveBackground 20s linear infinite;
+        }
+        @keyframes moveBackground {
+            0% { background-position: 0 0, 25px 25px; }
+            100% { background-position: 50px 50px, 75px 75px; }
+        }
+    </style>
+    <style>
+        /* قسم لماذا AI Kids School */
+        .why-section {
+            background-color: transparent;
+            padding: 80px 0;
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            direction: rtl;
+        }
+        .why-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            transform-origin: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        .why-card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .why-card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .why-card-description {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .why-card:hover::before {
+            opacity: 1;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+   <body>
+    <!-- القائمة العلوية -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.ibb.co/hLDFpQN/DALL-E-2025-01-12-04-45-22-A-friendly-and-playful-logo-for-a-kids-school-named-Ai-Ki-DS-SCHOOL-featu.png" alt="AI Kids School Logo" class="logo img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#courses">الدورات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">المميزات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#personalized-path">اختبارات مجانية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">الأسئلة الشائعة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footer">اتصل بنا</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-outline-primary me-2">تسجيل الدخول</a>
+                    <a href="register.html" class="btn btn-primary">التسجيل</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي -->
+    <header class="responsive-header full-screen-header">
+        <div class="header-container">
+            <img src="https://i.ibb.co/XCznKRt/coverhq.jpg" alt="AI Kids School Header" class="header-image full-screen-image">
+            <div class="hero-section">
+                <div class="hero-background"></div>
+                <div class="container position-relative" style="z-index: 2;">
+                    <h1 class="hero-title">
+                        <span class="letter">S</span>
+                        <span class="letter">c</span>
+                        <span class="letter">h</span>
+                        <span class="letter">o</span>
+                        <span class="letter">o</span>
+                        <span class="letter">l</span>
+                        <span class="letter"> </span>
+                        <span class="letter">K</span>
+                        <span class="letter">i</span>
+                        <span class="letter">d</span>
+                        <span class="letter">s</span>
+                        <span class="letter"> </span>
+                        <span class="letter">A</span>
+                        <span class="letter">I</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        مدرسة متخصصة في تعليم الذكاء الاصطناعي للأطفال، نهدف إلى إعداد جيل مبدع ومبتكر في عالم التكنولوجيا
+                    </p>
+                    <div class="header-actions">
+                        <a href="#courses" class="btn btn-primary">سجل الآن</a>
+                        <a href="#features" class="btn btn-secondary">تعرف أكثر</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- لماذا AI Kids School -->
+    <section class="why-section container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">لماذا AI Kids School؟</h2>
+            <p class="section-subtitle">اكتشف مميزاتنا الفريدة في تعليم الذكاء الاصطناعي للأطفال</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-card-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="why-card-title">تنمية التفكير الإبداعي</h3>
+                <p class="why-card-description">نساعد الأطفال على تطوير مهارات التفكير الإبداعي والابتكاري من خلال برامج الذكاء الاصطناعي المتقدمة</p>
+            </div>
+            <div class="why-card">
+                <div class="why-card-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="why-card-title">تعلم تفاعلي</h3>
+                <p class="why-card-description">منصة تعليمية تفاعلية تجمع بين المتعة والتعلم باستخدام أحدث تقنيات الذكاء الاصطناعي</p>
+            </div>
+            <div class="why-card">
+                <div class="why-card-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="why-card-title">مهارات المستقبل</h3>
+                <p class="why-card-description">نعد جيلًا قادرًا على التعامل مع التكنولوجيا المتقدمة وتطوير مهارات البرمجة والذكاء الاصطناعي</p>
+            </div>
+            <div class="why-card">
+                <div class="why-card-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="why-card-title">منهج علمي متكامل</h3>
+                <p class="why-card-description">برنامج تعليمي شامل مصمم من قبل خبراء التربية وتكنولوجيا المعلومات</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- الدورات -->
+    <section id="courses" class="section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>مسارات التعلم المتخصصة</h2>
+                <p>اختر المسار المناسب لمستقبل طفلك الإبداعي</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="program-card">
+                        <div class="program-icon">🤖</div>
+                        <h3>البرمجة والذكاء الاصطناعي</h3>
+                        <p>تعلم البرمجة وتعلم الآلة وأساسيات الذكاء الاصطناعي</p>
+                        <a href="#" class="btn btn-primary">اكتشف المسار</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="program-card">
+                        <div class="program-icon">💻</div>
+                        <h3>تطوير التطبيقات وتصميم الواجهات</h3>
+                        <p>إنشاء تطبيقات الويب والموبايل وتصميم واجهات مبتكرة</p>
+                        <a href="#" class="btn btn-primary">اكتشف المسار</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="program-card">
+                        <div class="program-icon">🎮</div>
+                        <h3>تطوير الألعاب</h3>
+                        <p>تعلم تصميم وبرمجة الألعاب باستخدام ماينكرافت ويونيتي</p>
+                        <a href="#" class="btn btn-primary">اكتشف المسار</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="program-card">
+                        <div class="program-icon">🛡️</div>
+                        <h3>الأمن السيبراني</h3>
+                        <p>تعليم أساسيات حماية المعلومات وأمن الشبكات</p>
+                        <a href="#" class="btn btn-primary">اكتشف المسار</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="program-card">
+                        <div class="program-icon">💼</div>
+                        <h3>ريادة الأعمال للأطفال</h3>
+                        <p>تنمية مهارات الأعمال والتسويق والمشاريع الصغيرة</p>
+                        <a href="#" class="btn btn-primary">اكتشف المسار</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الأسئلة الشائعة -->
+    <section id="faq" class="section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2>الأسئلة الشائعة</h2>
+                <p>تعرف على كل ما يهمك عن AI Kids School</p>
+            </div>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            ما هو العمر المناسب لتعلم البرمجة؟
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            السر يكمن في استخدام لغة سهلة وممتعة حيث يستمتع الأطفال برحلة التعلم بشكل شيق مع لغة "سكراتش جونيور" وهي تناسب الأطفال من سن ست سنوات و بغض النظر عن العمر، الحماس والفضول هما الدافعان الرئيسيان للطفل لكي يستمر في التعلم، انضموا إلينا وسنجعل رحلة تعلم البرمجة لأطفالكم تجربة رائعة وملهمة للغاية!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            ما هو نظام تعليم البرمجة في AI Kids School للأطفال؟
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            تهدف AI Kids School إلى تعليم الأطفال من عمر 6 إلى 18 عام أساسيات ومباديء البرمجة ابتداءًا من المفاهيم البسيطة مثل: syntax, variables, data structures وتتابع رحلة تعليمهم حتى يصلوا إلى مرحلة متقدمة واحترافية يتعلمون فيها: polymorphism, concurrency وما إلى ذلك بإستخدام أدوات ولغات مثل: MIT Scratch, Unity, Unreal Engine.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            ما الذي يتعلمه الأطفال في رحلتهم التعليمية مع البرمجة؟
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            دورات البرمجة تعلم الطلاب كيفية التواصل بفعالية مع الكومبيوتر مما يمكنهم من إنشاء وتطوير مجموعة متنوعة من الإبداعات الرقمية مثل البرمجة والألعاب والبرامج والمواقع الإلكترونية والتطبيقات. نقدم في AI Kids School رؤى قيمة حول استخدام لغات البرمجة مثل JavaScript و Python بالإضافة إلى استخدام أدوات تفاعلية مثل MIT Scratch، Unity، Unreal Engine، وغيرها.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            هل تطوير الألعاب جزء من البرمجة؟
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            بالطبع! تطوير الألعاب جزء أساسي من البرمجة، وهي واحدة من أكثر الطرق فعالية وتأثيرًا في تقديم البرمجة للأطفال، لن يتعلم طفلك فقط المهارات التقنية ولكنه سيتعلم أيضًا التفكير النقدي والتحليلي وكيفية حل المشكلات وسيصبح مبدع ومبتكر في المستقبل.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            هل البرمجة من المواد صعبة التعليم؟
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            تعلم البرمجة ليست بالمهمة الصعبة ويمكن للأطفال تعلم البرمجة في عمر ست سنوات، لكن الذي يحدد مدى سهولة رحلة التعلم هو جودة المدربين والمشاريع وطريقة التعلم، وتضمن مناهجنا للأطفال رحلة تعلم بسيطة وممتعة وتضمن تشكيل رؤية إبداعية لدى الأطفال.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            هل يستطيع طفل في عمر السادسة أن يكتب أكواد؟
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            يمكن للطفل في هذا العمر أن يتعلم مبادئ البرمجة وبعض المهارات المتعلقة بها، وهذا يمكنه من استيعاب معنى البرمجة ووضع أساسيات للتعلم وفي نفس الوقت يبدأ عقله في التطور والإبداع.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            هل يجب أن يكون الطفل متفوق في الرياضيات حتى يتمكن من استيعاب البرمجة؟
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            لا يجب أن يكون الطفل عبقريًا في الرياضيات حتى يفهم البرمجة بل أن تعلم البرمجة يساعد الطفل كثيرًا في دراسته الأكاديمية ويحسن من لغته الإنجليزية ومن مستواه في الرياضيات، ونحن نسعى دائمًا في AI Kids School إلى تنمية مهارات الطفل وإلى تحسين علاقته بالدراسة والمواد التي يدرسها.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEight">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            هل يمكنني تعلم البرمجة بنفسي؟
+                        </button>
+                    </h2>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            تختلف صعوبة تعلم البرمجة اعتمادًا على متى وأين وكيف تتعلم. ومع ذلك، من المهم التمييز بين مجرد معرفة الأساسيات والفهم الحقيقي واستخدام أفكار البرمجة العديدة التي تفتح الباب أمام إمكانيات لا حدود لها. تهدف ورش العمل لدينا إلى غرس تقدير الأطفال لجمال إنشاء برامجهم الخاصة، بالإضافة إلى تسليط الضوء على الإمكانيات غير المحدودة التي قد تفتحها خبرة البرمجة.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingNine">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                            كيف يتم شرح البرمجة للأطفال؟
+                        </button>
+                    </h2>
+                    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            نقوم بتعليم البرمجة للأطفال بطريقة سهلة وممتعة باستخدام الألعاب والأنشطة التفاعلية، نبدأ بمفاهيم بسيطة ونتقدم تدريجياً لمفاهيم أكثر تعقيدًا، الهدف هو جعل عملية التعلم مشوقة، حيث يستخدم الأطفال الألعاب والرسوم المتحركة لفهم البرمجة بشكل أفضل ونحرص على أن تكون رحلة تعليمهم معنا ممتعة وتفاعلية.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTen">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                            كيف يمكنني تشجيع طفلي على تعلم البرمجة؟
+                        </button>
+                    </h2>
+                    <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            عن طريق إضافة المرح والمتعة إلى رحلة التعلم، فيبدأ تعلم البرمجة عن طريق: الألعاب والرسوم المتحركة والموسيقى وأيضًا خلق عالم من القصص يشجعهم على التعلم، ونحن نهدف دائمًا إلى إلهام الأطفال والسماح لخيالهم بالإنطلاق مما يجعلهم يدرسون البرمجة بسهولة وسلاسة.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+   <!-- المسار المخصص -->
+   <section id="personalized-path" class="section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2>مختبر المسار المخصص</h2>
+                <p>اكتشف المسار الأمثل لمواهب طفلك الفريدة</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="personalized-path-card">
+                        <div class="path-card-header">
+                            <h3>اختبر هوايات طفلك بنفسك</h3>
+                            <p>اكتشف المسار الأمثل لمواهب طفلك الفريدة</p>
+                        </div>
+                        <div class="path-card-body">
+                            <div class="path-card-image">
+                                <img src="https://i.ibb.co/XCznKRt/coverhq.jpg" alt="اختبر هوايات طفلك" class="img-fluid">
+                                <div class="light-swipe"></div>
+                            </div>
+                            <div class="learning-paths">
+                                <div class="learning-path" data-path="coding-ai">
+                                    <div class="path-icon">
+                                        <i class="fas fa-laptop-code"></i>
+                                    </div>
+                                    <div class="path-details">
+                                        <h4>البرمجة والذكاء الاصطناعي</h4>
+                                        <p>اختبار مهارات البرمجة والتفكير التقني المتقدم</p>
+                                        <button class="btn btn-primary assess-btn">ابدأ التقييم</button>
+                                    </div>
+                                </div>
+                                <div class="learning-path" data-path="app-design">
+                                    <div class="path-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="path-details">
+                                        <h4>تطوير التطبيقات وتصميم الواجهات</h4>
+                                        <p>اختبار مهارات التصميم والتطوير التقني</p>
+                                        <button class="btn btn-primary assess-btn">ابدأ التقييم</button>
+                                    </div>
+                                </div>
+                                <div class="learning-path" data-path="game-dev">
+                                    <div class="path-icon">
+                                        <i class="fas fa-gamepad"></i>
+                                    </div>
+                                    <div class="path-details">
+                                        <h4>تطوير الألعاب</h4>
+                                        <p>اختبار مهارات الإبداع والتصميم التفاعلي</p>
+                                        <button class="btn btn-primary assess-btn">ابدأ التقييم</button>
+                                    </div>
+                                </div>
+                                <div class="learning-path" data-path="cybersecurity">
+                                    <div class="path-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="path-details">
+                                        <h4>الأمن السيبراني</h4>
+                                        <p>اختبار مهارات التفكير التحليلي والأمني</p>
+                                        <button class="btn btn-primary assess-btn">ابدأ التقييم</button>
+                                    </div>
+                                </div>
+                                <div class="learning-path" data-path="entrepreneurship">
+                                    <div class="path-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <div class="path-details">
+                                        <h4>ريادة الأعمال للأطفال</h4>
+                                        <p>اختبار مهارات القيادة والابتكار</p>
+                                        <button class="btn btn-primary assess-btn">ابدأ التقييم</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="path-card-footer">
+                            <button id="start-assessment" class="btn btn-primary">
+                                <i class="fas fa-play me-2"></i>ابدأ التقييم
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skills-assessment-card">
+                        <div class="skills-card-header">
+                            <h3>اختر المهارات لمعرفة نقاط القوة لدى طفلك</h3>
+                        </div>
+                        <div class="skills-card-body">
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <i class="fas fa-brain"></i>
+                                    <span>التفكير الإبداعي</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                    <span>حل المشكلات</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>مهارات التواصل</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>الابتكار</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-laptop-code"></i>
+                                    <span>المهارات التقنية</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-palette"></i>
+                                    <span>الإبداع الفني</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/background-shapes.js"></script>
+    <script src="js/career-path-quiz.js"></script>
+    <script src="js/programming-ai-quiz.js"></script>
+        <!-- Footer -->
+        <footer class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="footer-about">
+                            <img src="https://i.ibb.co/hLDFpQN/DALL-E-2025-01-12-04-45-22-A-friendly-and-playful-logo-for-a-kids-school-named-Ai-Ki-DS-SCHOOL-featu.png" alt="AI Kids School Logo" class="logo img-fluid">
+                            <h4>AI Kids School</h4>
+                            <p>منصة تعليمية متخصصة لتنمية مهارات الأطفال في عالم التكنولوجيا والإبداع</p>
+                            <div class="footer-social">
+                                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footer-links">
+                            <h4>روابط سريعة</h4>
+                            <ul>
+                                <li><a href="#home">الرئيسية</a></li>
+                                <li><a href="#courses">الدورات</a></li>
+                                <li><a href="#interactive-games">الألعاب التفاعلية</a></li>
+                                <li><a href="#faq">الأسئلة الشائعة</a></li>
+                                <li><a href="#contact">اتصل بنا</a></li>
+                            </ul>
+                            <div class="footer-newsletter text-center">
+                                <h5>اشترك في النشرة البريدية</h5>
+                                <form class="newsletter-form">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                                        <button class="btn btn-primary" type="submit">اشتراك</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footer-contact">
+                            <h4>تواصل معنا</h4>
+                            <ul>
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <strong>مكة المكرمة، المملكة العربية السعودية</strong>
+                                </li>
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <strong>القاهرة، جمهورية مصر العربية</strong>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i>
+                                    +201004127510
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i>
+                                    +966562313112
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i>
+                                    info@aikidsschool.com
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom text-center py-3">
+            <p class="mb-1">
+                <strong class="mx-2">AI Kids School</strong> 
+                <span class="text-muted mx-2">❤️</span> 
+                <span class="mx-2">جميع الحقوق محفوظة © 2025</span>
+            </p>
+            <p class="mb-0 small-text">
+                صُنع بحب من أجل مستقبل أفضل على يد أطفالنا
+            </p>
+        </div>
+            </div>
+        </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const assessButtons = document.querySelectorAll('.assess-btn');
+            
+            assessButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('سيتم إضافة اختبار المسار المهني قريبًا');
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const letters = document.querySelectorAll('.hero-title .letter');
+            
+            letters.forEach(letter => {
+                letter.addEventListener('mouseenter', () => {
+                    letter.style.animation = 'popUp 0.5s ease-out';
+                });
+                
+                letter.addEventListener('animationend', () => {
+                    letter.style.animation = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
